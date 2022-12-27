@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/styles.css" rel="stylesheet">
+    <title>Todo Application</title>
+</head>
+<style>
+    body {
+        background-color: aliceblue;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .v1 {
+        text-align: center;
+    }
+
+    .v2 {}
+
+    .v3 {
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .val{
+        margin-top: 5%;
+        margin-left: 45%;
+        margin-right: 20%;
+    }
+</style>
+
+<body>
+    <div class="v1">
+        <%- include('header.ejs') %>
+    </div>
+    <div class="val">
+        <div class="v2">
+            <%- include('todos.ejs') %>
+        </div>
+        <div class="v3">
+            <%- include('footer.ejs')%>
+        </div>
+    </div>
+</body>
+
+</html>
