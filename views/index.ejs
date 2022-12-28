@@ -5,45 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../public/styles.css" rel="stylesheet">
-    <title>Todo Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./css/style.css" rel="stylesheet">
+    <title>Todo-Manager</title>
 </head>
-<style>
-    body {
-        background-color: aliceblue;
-        font-family: 'Courier New', Courier, monospace;
-    }
-
-    .v1 {
-        text-align: center;
-    }
-
-    .v2 {}
-
-    .v3 {
-        text-align: center;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-    .val{
-        margin-top: 5%;
-        margin-left: 45%;
-        margin-right: 20%;
-    }
-</style>
 
 <body>
-    <div class="v1">
-        <%- include('header.ejs') %>
-    </div>
-    <div class="val">
-        <div class="v2">
-            <%- include('todos.ejs') %>
-        </div>
-        <div class="v3">
-            <%- include('footer.ejs')%>
+
+
+    <div class="grid grid-cols-6">
+        <div class="col-start-3 col-span-2">
+            <%- include('header.ejs') %>
+                <form method="post" action="/todos">
+                    <div class="flex gap-2 py-4">
+                        <div class="flex-auto">
+                            <input type="text" placeholder="Enter task" name="title"
+                                class="border border-gray-300 rounded text-gray-900 w-full p-2 text-sm" required />
+                        </div>
+                        <div class="flex-auto">
+                            <input type="date" name="dueDate"
+                                class="border border-gray-300 rounded text-gray-900 w-full p-2 text-sm leading-4"
+                                required>
+                        </div>
+                        <div class="flex-none">
+                            <button type="submit"
+                                class="bg-green-600 text-white px-5 py-1.5 rounded mr-2 mb hover:bg-blue-600">
+                                Add</button>
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <%- include('todos.ejs') %>
+                </div>
         </div>
     </div>
 </body>
