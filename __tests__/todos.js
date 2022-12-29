@@ -13,7 +13,6 @@ describe("Todo Application test", function () {
     server = app.listen(4000, () => {});
     agent = request.agent(server);
   });
-
   afterAll(async () => {
     try {
       await db.sequelize.close();
@@ -22,12 +21,11 @@ describe("Todo Application test", function () {
       console.log(error);
     }
   });
-
   test("Creates a todo", async () => {
     const res = await agent.get("/");
     const Ctoken = gettoken(res);
     const response = await agent.post("/todos").send({
-      title: "Buy milk",
+      title: "fav movies",
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: Ctoken,
@@ -39,7 +37,7 @@ describe("Todo Application test", function () {
     let res = await agent.get("/");
     let Ctoken = gettoken(res);
     await agent.post("/todos").send({
-      title: "Buy milk",
+      title: "Buy bread",
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: Ctoken,
@@ -66,7 +64,7 @@ describe("Todo Application test", function () {
     let res = await agent.get("/");
     let Ctoken = gettoken(res);
     await agent.post("/todos").send({
-      title: "Watch Homecoming",
+      title: "batman",
       dueDate: new Date().toISOString(),
       completed: true,
       _csrf: Ctoken,
@@ -95,7 +93,7 @@ describe("Todo Application test", function () {
     let res = await agent.get("/");
     let Ctoken = gettoken(res);
     await agent.post("/todos").send({
-      title: "Watch Spiderman 3",
+      title: "tom cruise",
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: Ctoken,
@@ -118,7 +116,6 @@ describe("Todo Application test", function () {
     expect(parsedDeleteResponseTrue).toBe(true);
     res = await agent.get("/");
     Ctoken = gettoken(res);
-
     const deleteResponseFail = await agent.delete(`/todos/${todoid}`).send({
       _csrf: Ctoken,
     });
