@@ -1,8 +1,8 @@
 body {
-    background-color: white;
-    font-family: sans-serif;
-}
-
-.Todo-item:hover .trash-icon{
+    color: black;
+    background-color: aliceblue;
+    font-family: "sanserif", Times, serif;
+  }
+  .todo-item:hover .delete-icon {
     display: block;
-}
+  }
